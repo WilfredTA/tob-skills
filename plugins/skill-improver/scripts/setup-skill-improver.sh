@@ -82,7 +82,9 @@ PLUGIN_DEV_FOUND=false
 for search_dir in \
   "${CLAUDE_PLUGIN_ROOT:-}/../plugin-dev" \
   "$HOME/.claude/plugins/plugin-dev" \
-  "$HOME/.claude-code/plugins/plugin-dev"; do
+  "$HOME/.claude-code/plugins/plugin-dev" \
+  "$HOME/.claude/plugins/cache"/*/plugin-dev/* \
+  "$HOME/.claude/plugins/cache"/*/*/plugin-dev/*; do
   if [[ -d "$search_dir/.claude-plugin" ]]; then
     PLUGIN_DEV_FOUND=true
     break
