@@ -86,7 +86,9 @@ for search_dir in \
   "$HOME/.claude/plugins/cache"/*/plugin-dev/* \
   "$HOME/.claude/plugins/cache"/*/*/plugin-dev/*; do
   if [[ -d "$search_dir/.claude-plugin" ]] ||
-     [[ -f "$search_dir/agents/skill-reviewer.md" ]]; then
+    # Cached plugins (marketplace installs) lack .claude-plugin/;
+    # check for the specific agent file this plugin depends on
+    [[ -f "$search_dir/agents/skill-reviewer.md" ]]; then
     PLUGIN_DEV_FOUND=true
     break
   fi
